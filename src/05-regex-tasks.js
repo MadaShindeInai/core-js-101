@@ -32,7 +32,7 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-  throw new Error('Not implemented');
+  return /\{[FECcf\d]{8}-[faAEF\d]{4}-[Dc\d]{4}-[ACDb\d]{4}-[ECBDd\d]{12}\}/;
 }
 
 
@@ -54,7 +54,7 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
-  throw new Error('Not implemented');
+  return /p.t/;
 }
 
 
@@ -78,8 +78,9 @@ function getRegexForPitSpot() {
  *   'PASSW0RD'.match(validator)  => false
  *   'Pa55'.match(validator) => false
  */
-function getPasswordValidator(/* minLength */) {
-  throw new Error('Not implemented');
+function getPasswordValidator(minLength) {
+  // eslint-disable-next-line no-new
+  return new RegExp(`^((?=\\w*[A-Z])(?=\\w*[a-z])(?=\\w*[0-9])[a-zA-Z0-9]{${minLength},})$`);
 }
 
 
